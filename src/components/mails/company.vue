@@ -1,27 +1,18 @@
 <template>
     <div>
-        <!-- <panel header="" :list="list" :type="type"></panel> -->
         <vlist :list="list" :type="type"></vlist>
     </div>
 </template>
 <script>
-import { vlist } from '@/libs/list';
-import { Panel } from 'vux';
+import vlist from '@/libs/list';
 export default {
     name: 'Company',
-    components: { Panel, vlist },
+    components: { vlist },
     data() {
         return {
+            parentDepartId: 0,
             type: '1',
-            list: [
-                {
-                    icon: 'iconfont icon-user',
-                    Name: '姓名',
-                    PostName: '职位',
-                    url: 'http://www.baidu.com',
-                    src: '111',
-                }
-            ],
+            list: [],
         }
     },
     created() {
@@ -31,20 +22,15 @@ export default {
         this.$store.commit('getMenus',{menu1:"编辑部门"});
 
         var that = this;
-        var UserId = localStorage.getItem("UserId");
-        var Token = localStorage.getItem("Token");
-        var parentDepartId = 0;
-        var data = { parentDepartId:parentDepartId, UserId:UserId, Token:Token }
-        console.log(data)
-        $ajax.get('/UserApi/getDepartList',{params:data})
+        // this.parentDepartId = this.$route.params.parentDepartId;
+        console.log(this.$route.params)
+        $ajax.get('/UserApi/getDepartList?parentDepartId=' + this.parentDepartId)
         .then(res=>{
             console.log(res)
-            var arr = [];
-            arr = res.data.Departs;
-            for(var i in arr){
-                arr[i].title = arr[i].Name
+            for(var i in res.data.Departs){
+                res.data.Departs[i].url= '?parentDepartId=' + res.data.Departs[i].Id
             }
-            that.list = arr;
+            that.list = res.data.Departs;
         })
         .catch(function (err) {
             console.log(err);

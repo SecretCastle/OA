@@ -8,7 +8,6 @@ const Login = resolve => require(['@/components/Login'], resolve);
 const Msg = resolve => require(['@/components/msg/Msg'], resolve);
 const Mails = resolve => require(['@/components/mails/Mails'], resolve);
 const Company = resolve => require(['@/components/mails/Company'], resolve);
-const list = resolve => require(['@/libs/list'], resolve);
 
 Vue.use(Router)
 
@@ -31,14 +30,9 @@ export default new Router({
 		    component: Mails
 		},
 		{
-		    path: '/mails/Company',
+		    path: '/mails/Company/:parentDepartId',
 		    name: 'Company',
 		    component: Company
-		},
-		{
-		    path: '/libs/list',
-		    name: 'list',
-		    component: list
-		},
+		}
 	]
 })

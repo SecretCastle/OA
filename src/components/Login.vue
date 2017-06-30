@@ -36,7 +36,7 @@ export default {
     methods: {
         loginApi() {
             var data = { Tel: this.Tel, Password: this.Password }
-            $ajax.post('/UserApi/login', data)
+            $api.post('/UserApi/login', data)
             .then(res => {
                 console.log(res)
                 if (res.data.Success) {

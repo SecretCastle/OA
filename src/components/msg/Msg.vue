@@ -57,6 +57,7 @@ export default {
     mounted() {
         this.$store.commit('getTitle','消息列表');
         this.$store.commit('getMenus',{menu1:"11",menu2:"22"});
+        this.$store.commit('hasFoot',{hasFoot:true});
     },
     computed: {},
     methods: {

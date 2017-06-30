@@ -2,7 +2,7 @@
     <div>
         <div class="weui-list_access">
             <template v-if="type==='1'">
-                <a v-for="item in list" :href="item.url">
+                <a v-for="item in list" @click.prevent="goUrl(item.url)">
                     <div class="weui-media-box__hd" v-if="item.icon">
                         <i :class="item.icon"></i>
                     </div>
@@ -39,18 +39,7 @@ export default {
         }
     },
     data() {
-        return {
-            // type: '1',
-            // list: [
-            //     {
-            //         icon: 'iconfont icon-user',
-            //         Name: '姓名',
-            //         PostName: '职位',
-            //         url: 'http://www.baidu.com',
-            //         src: '111',
-            //     }
-            // ],
-        }
+        return {}
     },
     created() {
     },
@@ -58,6 +47,9 @@ export default {
     },
     computed: {},
     methods: {
+        goUrl(url){
+            $router.push(url)
+        }
     },
     destroyed() {}
 }
