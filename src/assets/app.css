@@ -1,0 +1,26 @@
+@charset "utf-8";
+
+img { max-width: 100%; height: auto; vertical-align: middle; }
+
+.mask { position: fixed; left: 0; top: 46px; width: 100%; height: 100%; background: #fff; z-index: 1; }
+
+
+
+/* weui样式重置 */
+.weui-icon-clear { position: relative; top: -2px; font-size: 20px!important; }
+.submit { width: 80%!important; background: #004098!important; color: #fff!important; }
+
+/*panel-type-1*/
+.weui-media-box__hd { width: 40px!important; height: 40px!important; }
+/*panel-type-3*/
+.weui-media-box_small-appmsg .weui-cell__hd img { width: 40px!important; height: 40px!important; }
+
+
+/* search */
+.weui-search-bar__form { border-radius: 3px; }
+.weui-search-bar { background: #fff!important; }
+.weui-search-bar:before,.weui-search-bar:after { border: 0!important; }
+.weui-search-bar__label,.weui-search-bar__box { background: #eeeff3!important; border-radius: 3px; }
+.weui-search-bar__box .weui-icon-clear { font-size: 14px!important; }
+
+
