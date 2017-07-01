@@ -68,18 +68,22 @@ store.registerModule('vux', { // 名字自己定义
         isLoading: false,
         title: '云OA系统',
         hasFoot: true,
+
         menus: {},
         hasBack: true
+
     },
     mutations: {
         updateLoadingStatus(state, payload) {
             state.isLoading = payload.isLoading
         },
+
         hasBack(state, payload){
         	state.hasBack = payload.hasBack;
         },
         hasFoot(state, payload){
             state.hasFoot = payload.hasFoot;
+
         },
         getTitle(state, payload) {
             state.title = payload;
