@@ -17,7 +17,7 @@ export default {
                     src: icon_company,
                     title: '公司',
                     desc: '',
-                    url: 'company?parentDepartId=0',
+                    url: 'company/0',
                 },
             ],
         }

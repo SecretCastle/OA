@@ -20,11 +20,11 @@ export default {
     mounted() {
         this.$store.commit('getTitle','公司');
         this.$store.commit('getMenus',{menu1:"编辑部门"});
-
+        
         var that = this;
         // this.parentDepartId = this.$route.params.parentDepartId;
-        console.log(this.$route.params)
-        $ajax.get('/UserApi/getDepartList?parentDepartId=' + this.parentDepartId)
+
+        $ajax.get('/UserApi/getDepartList?parentDepartId=' + this.$route.params.pid)
         .then(res=>{
             console.log(res)
             for(var i in res.data.Departs){

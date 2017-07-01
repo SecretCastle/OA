@@ -12,7 +12,6 @@ const Company = resolve => require(['@/components/mails/Company'], resolve);
 Vue.use(Router)
 
 export default new Router({
-	mode: 'history',
 	routes: [
 		{
 			path: '/',
@@ -30,7 +29,7 @@ export default new Router({
 		    component: Mails
 		},
 		{
-		    path: '/mails/Company/:parentDepartId',
+		    path: '/mails/Company/:pid',
 		    name: 'Company',
 		    component: Company
 		}
