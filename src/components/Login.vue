@@ -31,19 +31,18 @@ export default {
     created() {},
     mounted() {
         this.$store.commit('hasFoot',{hasFoot:false});
+        this.$store.commit('hasBack',{hasBack:false});
     },
     computed: {},
     methods: {
         loginApi() {
             var data = { Tel: this.Tel, Password: this.Password }
-            $ajax.post('/UserApi/login', data)
+            $api.post('/UserApi/login', data)
             .then(res => {
                 console.log(res)
                 if (res.data.Success) {
                     localStorage.setItem("Token", res.data.Data.Token);
                     localStorage.setItem("UserId", res.data.Data.UserId);
-                    localStorage.getItem("Token");
-                    localStorage.getItem("UserId");
                     $router.push('msg/Msg')
                 } else {
                     console.log(res.data.Message)

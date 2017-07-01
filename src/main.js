@@ -22,11 +22,24 @@ window.base_url = 'https://oa.m150.ibw.cc';
 
 axios.defaults.baseURL = 'https://oa.m150.ibw.cc';
 
-let axiosAjax = axios.create({
+
+// 登陆前
+let axiosApi = axios.create({
     baseUrl: base_url,
     timeout: 10000
 })
 
+// 登陆后
+let axiosAjax = axios.create({
+    baseUrl: base_url,
+    timeout: 10000,
+    params: {
+        Token: localStorage.getItem('Token'),
+        UserId: localStorage.getItem('UserId')
+    }
+})
+
+Vue.prototype.$api = window.$api = axiosApi;
 Vue.prototype.$ajax = window.$ajax = axiosAjax;
 
 // // Add a request interceptor
@@ -55,14 +68,18 @@ store.registerModule('vux', { // 名字自己定义
         isLoading: false,
         title: '云OA系统',
         hasFoot: true,
-        menus: {}
+        menus: {},
+        hasBack: true
     },
     mutations: {
         updateLoadingStatus(state, payload) {
             state.isLoading = payload.isLoading
         },
+        hasBack(state, payload){
+        	state.hasBack = payload.hasBack;
+        },
         hasFoot(state, payload){
-        	state.hasFoot = payload.hasFoot;
+            state.hasFoot = payload.hasFoot;
         },
         getTitle(state, payload) {
             state.title = payload;

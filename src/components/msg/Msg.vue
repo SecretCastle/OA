@@ -14,38 +14,33 @@
         ref="search"></search>
         <div class="mask" v-show="mask"></div>
         <!-- <vsearch></vsearch> -->
-        <panel header="" :list="list" :type="type"></panel>
+        <vlist :list="list" :type="type"></vlist>
     </div>
 </template>
 <script>
-import icon_msg_01 from '../../assets/images/icon_msg_01.png';
-import icon_msg_02 from '../../assets/images/icon_msg_02.png';
-import icon_msg_03 from '../../assets/images/icon_msg_03.png';
-import { Panel, Search } from 'vux';
+import { Search } from 'vux';
+import vlist from '@/libs/list';
 export default {
     name: 'Msg',
-    components: { Panel, Search },
+    components: { vlist, Search },
     data() {
         return {
-            type: '1',
+            type: '3',
             list: [
                 {
-                    src: icon_msg_01,
                     title: '未处理审核',
-                    desc: '加入申请',
                     url: '',
+                    icon: 'icon-unhandel'
                 },
                 {
-                    src: icon_msg_02,
                     title: '提醒信息',
-                    desc: '客户跟进提醒',
-                    url: ''
+                    url: '',
+                    icon: 'icon-reports'
                 },
                 {
-                    src: icon_msg_03,
                     title: '我的客户',
-                    desc: '',
-                    url: ''
+                    url: '',
+                    icon: 'icon-subscribe'
                 },
             ],
             results: [],
@@ -56,7 +51,9 @@ export default {
     created() {},
     mounted() {
         this.$store.commit('getTitle','消息列表');
-        this.$store.commit('getMenus',{menu1:"11",menu2:"22"});
+        this.$store.commit('getMenus',{menu1:"操作一",menu2:"操作二"});
+        this.$store.commit('hasFoot',{hasFoot:true});
+        this.$store.commit('hasBack',{hasBack:false});
     },
     computed: {},
     methods: {

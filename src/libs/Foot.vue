@@ -1,11 +1,10 @@
 <template>
     <tabbar v-if="hasFoot">
         <tabbar-item link="/msg/msg">
-            <!-- <i slot="icon" icon-class="iconfont icon-user" icon-active=""></i> -->
             <img slot="icon" src="../assets/images/icon_msg_on.png">
             <span slot="label">消息</span>
         </tabbar-item>
-        <tabbar-item show-dot link="/mails/mails">
+        <tabbar-item show-dot link="/mail/mail">
             <img slot="icon" src="../assets/images/icon_mailList_on.png">
             <span slot="label">通讯录</span>
         </tabbar-item>

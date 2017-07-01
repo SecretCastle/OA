@@ -1,6 +1,6 @@
 <template>
     <div>
-        <x-header style="background: #000;" :right-options="{showMore: true}" @on-click-more="showMenus = true">{{ title }}</x-header>
+        <x-header style="background: #000;" :left-options="{showBack:hasBack}" :right-options="{showMore: true}" @on-click-more="showMenus = true">{{ title }}</x-header>
         <div v-transfer-dom>
             <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
         </div>
@@ -20,18 +20,14 @@ export default {
     },
     data() {
         return {
-            // title: '',
-            // menus: {
-            //     menu1: 'Take Photo',
-            //     menu2: 'Choose from photos'
-            // },
             showMenus: false
         }
     },
     computed: {
         ...mapState({
             title: state => state.vux.title,
-            menus: state => state.vux.menus
+            menus: state => state.vux.menus,
+            hasBack: state => state.vux.hasBack
         })
     }
 }

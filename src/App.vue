@@ -31,5 +31,7 @@ export default {
     width: 100%;
     height: auto;
     margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 100px;
 }
 </style>
