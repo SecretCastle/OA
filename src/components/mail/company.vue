@@ -23,21 +23,22 @@ export default {
     created() {
     },
     mounted() {
-        this.$store.commit('getMenus',{menu1:"编辑部门"});
+        this.$store.commit('rightTab',"编辑部门");
+        this.$store.commit('hasFoot',{hasFoot:false});
 
         var that = this;
-        console.log(this.$route.params)
         $ajax.get('/UserApi/getDepartList?parentDepartId=' + this.$route.params.pid)
         .then(res=>{
             console.log(res)
             var Departs = res.data.Departs,
                 Employees = res.data.Employees;
             for(var i in Departs){
-                Departs[i].url= './' + Departs[i].Id
+                Departs[i].url = './' + Departs[i].Id
             }
             that.listD = Departs;
             for(var i in Employees){
-                Employees[i].src= Employees[i].Avatar
+                Employees[i].Avatar = Employees[i].Avatar,
+                Employees[i].url = '../emp/' + Employees[i].Id
             }
             that.listE = res.data.Employees;
             var pTitle = res.data.Name ? res.data.Name : '公司'

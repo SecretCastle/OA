@@ -8,6 +8,10 @@ const Login = resolve => require(['@/components/Login'], resolve);
 const Msg = resolve => require(['@/components/msg/Msg'], resolve);
 const Mail = resolve => require(['@/components/mail/Mail'], resolve);
 const Company = resolve => require(['@/components/mail/Company'], resolve);
+const Emp = resolve => require(['@/components/mail/emp'], resolve);
+const Apps = resolve => require(['@/components/app/apps'], resolve);
+const Own = resolve => require(['@/components/Own/Own'], resolve);
+const OwnInfo = resolve => require(['@/components/Own/OwnInfo/OwnInfo'], resolve);
 
 Vue.use(Router)
 
@@ -33,6 +37,26 @@ export default new Router({
 		    path: '/mail/Company/:pid',
 		    name: 'Company',
 		    component: Company
+		},
+		{
+		    path: '/mail/Emp/:empId',
+		    name: 'Emp',
+		    component: Emp
+		},
+		{
+		    path: '/App/Apps',
+		    name: 'Apps',
+		    component: Apps
+		},
+		{
+		    path: '/Own/Own',
+		    name: 'Own',
+		    component: Own
+		},
+		{
+		    path: '/Own/OwnInfo/:empId',
+		    name: 'OwnInfo',
+		    component: OwnInfo
 		}
 	]
 })

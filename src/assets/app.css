@@ -1,20 +1,10 @@
-
 @charset "utf-8";
-
-img { max-width: 100%; height: auto; vertical-align: middle; }
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,form,img,input,textarea,select,button,label,tr,td{margin:0;padding:0}em,i{font-style:normal}li{list-style:none}a,a:hover{color:#000;text-decoration:none}img{-webkit-box-sizing:border-box;box-sizing:border-box;height:auto;max-width:100%;border:0;vertical-align:middle;}table{border-collapse:collapse;border-spacing:0}label{cursor:default}body,button,input,select,textarea{font:100% Tahoma,arial,'Hiragino Sans GB','microsoft yahei',\5b8b\4f53}input,textarea{resize:none;border:none;background:none;border-radius:0;}input[type="text"],input[type="button"],input[type="submit"],input[type="reset"],textarea{appearance:none;-moz-appearance:none;-webkit-appearance:none;-ms-appearance:none;}select::-ms-expand{display:none;}a,a:focus{outline:none}.clearfix:after{content:'\20';display:block;height:0;clear:both}.clearfix{*zoom:1}
 
 .mask { position: fixed; left: 0; top: 46px; width: 100%; height: 100%; background: #fff; z-index: 1; }
-
-
-
 /* weui样式重置 */
 .weui-icon-clear { position: relative; top: -2px; font-size: 20px!important; }
 .submit { width: 80%!important; background: #004098!important; color: #fff!important; }
-
-/*panel-type-1*/
-/*.weui-media-box__hd { width: 40px!important; height: 40px!important; }*/
-/*panel-type-3*/
-/*.weui-media-box_small-appmsg .weui-cell__hd img { width: 40px!important; height: 40px!important; }*/
 
 
 /* search */
@@ -27,3 +17,5 @@ img { max-width: 100%; height: auto; vertical-align: middle; }
 /* space */
 .space { display: block; width: 100%; height: 0; padding: 10px; background: transparent; }
 
+/* grids */
+.weui-grid__icon { line-height: 28px; }

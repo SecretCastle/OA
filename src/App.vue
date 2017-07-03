@@ -29,10 +29,9 @@ export default {
     position: relative;
     max-width: 720px;
     width: 100%;
-    height: auto;
+    height: 100%;
     margin: 0 auto;
     overflow: hidden;
-    padding-bottom: 100px;
-
+    justify-content:space-between;
 }
 </style>
