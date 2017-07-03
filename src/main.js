@@ -67,26 +67,27 @@ store.registerModule('vux', { // 名字自己定义
     state: {
         isLoading: false,
         title: '云OA系统',
-        hasFoot: true,
-
+        hasFoot: false,
         menus: {},
-        hasBack: true
-
+        hasBack: true,
+        showMore: false,
+        rightTab: '完成'
     },
     mutations: {
         updateLoadingStatus(state, payload) {
             state.isLoading = payload.isLoading
         },
-
         hasBack(state, payload){
         	state.hasBack = payload.hasBack;
         },
         hasFoot(state, payload){
             state.hasFoot = payload.hasFoot;
-
         },
         getTitle(state, payload) {
             state.title = payload;
+        },
+        rightTab(state, payload) {
+            state.rightTab = payload;
         },
         getMenus(state, payload) {
             state.menus = payload;
@@ -102,8 +103,6 @@ router.beforeEach(function(to, from, next) {
 router.afterEach(function(to) {
     store.commit('updateLoadingStatus', { isLoading: false })
 })
-
-
 
 /* eslint-disable no-new */
 new Vue({

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="padding-bottom: 100px;">
         <vlist :list="list" :type="type"></vlist>
     </div>
 </template>
@@ -24,12 +24,12 @@ export default {
     },
     mounted() {
         this.$store.commit('getTitle','通讯录');
-        this.$store.commit('getMenus',{menu1:"手动添加员工"});
+        this.$store.commit('rightTab',"手动添加员工");
         this.$store.commit('hasBack',{hasBack:false});
+        this.$store.commit('hasFoot',{hasFoot:true});
     },
     computed: {},
-    methods: {
-    },
+    methods: {},
     destroyed() {}
 }
 </script>

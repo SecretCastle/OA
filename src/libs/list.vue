@@ -20,7 +20,7 @@
                 <div v-if="header" class="weui-t_bar">{{ header }}{{ list.length ? '（'+list.length+'）' : '' }}</div>
                 <a class="weui-media_box" v-for="item in list" :href="item.url">
                     <div class="weui-media-box__hd">
-                        <img v-if="item.src" class="weui-media-box__avatar" :src="item.src" alt="">
+                        <img v-if="item.Avatar" class="weui-media-box__avatar" :src="item.Avatar" alt="">
                         <div v-else class="weui-media-box__noAvatar">{{item.Name}}</div>
                     </div>
                     <div class="weui-media-box__bd">
@@ -39,6 +39,7 @@
                     </div>
                     <div class="weui-media-box__bd">
                         <h4 class="weui-media-box__title">{{item.title}}</h4>
+                        <p class="weui-media-box__desc">{{item.desc}}</p>
                     </div>
                     <div class="weui-cell__ft weui-cell__ft_in-access"></div>
                 </a>
@@ -71,9 +72,8 @@ export default {
 </script>
 <style scoped>
 .weui-t_bar { height: 35px; padding: 0 15px; background: #eeeff3; color: #000; font-size: 16px; line-height: 35px; }
-.weui-media_box { position: relative; padding: 10px 15px; display: flex; align-items: center; color: #000; }
-.weui-media_box:before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 1px; background: #eee; transform: scale(1,.3); }
-.weui-media_box:first-child:before { height: 0; }
+.weui-media_box { position: relative; margin-top: 15px; padding: 10px 15px; display: flex; align-items: center; color: #000; background: #fff; }
+.weui-media_box:before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 1px; background: #ccc; transform: scale(1,.3); }
 .weui-media_box:after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background: #ccc; transform: scale(1,.3); }
 .weui-media-box__hd { width: 50px; height: 50px; margin-right: 10px; line-height: 50px; text-align: center; }
 .weui-media-box__hd3 { width: 40px; height: 40px; margin-right: 10px; line-height: 40px; text-align: center; }
@@ -81,7 +81,7 @@ export default {
 .weui-media-box__title { font-size: 16px; font-weight: normal; }
 .weui-media-box__desc { font-size: 13px; color: #ccc; }
 .weui-cell__ft_in-access { content:" "; display:inline-block; height:10px; width:10px; border-width:2px 2px 0 0; border-color:#C8C8CD; border-style:solid;transform:matrix(0.71, 0.71, -0.71, 0.71, 0, 0); position:absolute; top:50%; right:17px; margin-top: -6px; }
-.weui-media-box__avatar { width: 50px; height: 50px; border-radius: 100%; }
+.weui-media-box__avatar { display: block; width: 50px; height: 50px; border-radius: 100%; }
 .weui-media-box__noAvatar{ width: 50px; height: 50px; border-radius: 100%; background: #b9b9c8; color: #fff; font-size: 13px; overflow: hidden; }
 
 
@@ -91,4 +91,6 @@ export default {
 .icon-unhandel { background: #FFB200; }
 .icon-reports { background: #00AAFF; }
 .icon-subscribe { background: #14c0b6; }
+.icon-myPermission { background: #004098; }
+.icon-selfinfo-setting { background: #8f999a; }
 </style>
