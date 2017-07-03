@@ -30,7 +30,6 @@
 </template>
 <script>
 export default {
-    name: 'list',
     props: {
         list: Array,
         type: {

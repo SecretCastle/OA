@@ -1,15 +1,15 @@
 <template>
     <div>
         <!-- <panel header="" :list="list" :type="type"></panel> -->
-        <vlist :list="list" :type="type"></vlist>
+        <list :list="list" :type="type"></list>
     </div>
 </template>
 <script>
-import { vlist } from '@/libs/list';
+import list from '@/libs/list';
 import { Panel } from 'vux';
 export default {
     name: 'Company',
-    components: { Panel, vlist },
+    components: { Panel, list },
     data() {
         return {
             type: '1',
