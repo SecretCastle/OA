@@ -8,7 +8,7 @@
             <img slot="icon" src="../assets/images/icon_mailList_on.png">
             <span slot="label">通讯录</span>
         </tabbar-item>
-        <tabbar-item link="/app/app">
+        <tabbar-item link="/app/apps">
             <img slot="icon" src="../assets/images/icon_app_on.png">
             <span slot="label">应用</span>
         </tabbar-item>

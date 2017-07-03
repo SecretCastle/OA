@@ -6,9 +6,8 @@ import Router from 'vue-router'
 // 懒加载单页面
 const Login = resolve => require(['@/components/Login'], resolve);
 const Msg = resolve => require(['@/components/msg/Msg'], resolve);
-const Mails = resolve => require(['@/components/mails/Mails'], resolve);
-const Company = resolve => require(['@/components/mails/Company'], resolve);
-const list = resolve => require(['@/libs/list'], resolve);
+const Mail = resolve => require(['@/components/mail/Mail'], resolve);
+const Company = resolve => require(['@/components/mail/Company'], resolve);
 
 Vue.use(Router)
 
@@ -26,19 +25,14 @@ export default new Router({
 		    component: Msg
 		},
 		{
-		    path: '/mails/Mails',
-		    name: 'Mails',
-		    component: Mails
+		    path: '/mail/Mail',
+		    name: 'Mail',
+		    component: Mail
 		},
 		{
-		    path: '/mails/Company',
+		    path: '/mail/Company/:pid',
 		    name: 'Company',
 		    component: Company
-		},
-		{
-		    path: '/libs/list',
-		    name: 'list',
-		    component: list
-		},
+		}
 	]
 })
