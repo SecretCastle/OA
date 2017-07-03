@@ -1,6 +1,6 @@
 <template>
     <div style="padding-bottom: 100px;">
-        <!-- <search
+        <search
         @result-click="resultClick"
         @on-change="getResult"
         :results="results"
@@ -12,9 +12,9 @@
         @on-cancel="onCancel"
         placeholder="搜索姓名"
         ref="search"></search>
-        <div class="mask" v-show="mask"></div> -->
-        <vsearch></vsearch>
-        <vlist :list="list" :type="type"></vlist>
+        <div class="mask" v-show="mask"></div>
+        <!-- <vsearch></vsearch> -->
+        <vlist :list="list" :type="type" ></vlist>
     </div>
 </template>
 <script>
@@ -44,9 +44,9 @@ export default {
                     icon: 'icon-subscribe'
                 },
             ],
-            // results: [],
-            // value: '',
-            // mask: !1
+            results: [],
+            value: '',
+            mask: !1
         }
     },
     created() {},
@@ -58,36 +58,36 @@ export default {
     },
     computed: {},
     methods: {
-        // resultClick (item) {
-        //   console.log('you click the result item: ' + JSON.stringify(item))
-        //   this.mask = !1
-        // },
-        // getResult (val) {
-        //   this.results = val ? getResult(this.value) : []
-        // },
-        // onSubmit () {
-        //   this.$refs.search.setBlur()
-        // },
-        // onFocus(){
-        //     this.mask = !0
-        // },
-        // onCancel(){
-        //     this.mask = !1
-        // }
+        resultClick (item) {
+          console.log('you click the result item: ' + JSON.stringify(item))
+          this.mask = !1
+        },
+        getResult (val) {
+          this.results = val ? getResult(this.value) : []
+        },
+        onSubmit () {
+          this.$refs.search.setBlur()
+        },
+        onFocus(){
+            this.mask = !0
+        },
+        onCancel(){
+            this.mask = !1
+        }
     },
     destroyed() {}
 }
 
-// function getResult (val) {
-//   let rs = []
-//   for (let i = 0; i < 20; i++) {
-//     rs.push({
-//       title: `${val} result: ${i + 1} `,
-//       other: i
-//     })
-//   }
-//   return rs
-// }
+function getResult (val) {
+  let rs = []
+  for (let i = 0; i < 20; i++) {
+    rs.push({
+      title: `${val} result: ${i + 1} `,
+      other: i
+    })
+  }
+  return rs
+}
 </script>
 <style scoped>
 </style>
