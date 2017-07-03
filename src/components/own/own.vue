@@ -1,7 +1,7 @@
 <template>
     <div style="padding-bottom: 100px;">
-        <vlist :list="list1" :type="type1"></vlist>
-        <vlist :list="list2" :type="type2"></vlist>
+        <vlist :list="list1" :type="type1" :hasMt="hasMt"></vlist>
+        <vlist :list="list2" :type="type2" :hasMt="hasMt"></vlist>
     </div>
 </template>
 <script>
@@ -12,6 +12,7 @@ export default {
     data() {
         return {
             type1: '2',
+            hasMt: !0,
             list1: [
                 {
                     Name: '',
@@ -21,6 +22,7 @@ export default {
                 }
             ],
             type2: '3',
+            hasMt: !0,
             list2: [
                 {
                     title: '我的权限',

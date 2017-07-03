@@ -1,6 +1,6 @@
 <template>
     <div style="padding-bottom: 100px;">
-        <vlist :list="list" :type="type"></vlist>
+        <vlist :list="list" :type="type" :hasMt="hasMt"></vlist>
     </div>
 </template>
 <script>
@@ -11,10 +11,11 @@ export default {
     data() {
         return {
             type: '3',
+            hasMt: !0,
             list: [
                 {
                     title: '公司',
-                    url: 'company/0',
+                    url: './company/0',
                     icon: 'icon-company'
                 },
             ],
@@ -25,8 +26,8 @@ export default {
     mounted() {
         this.$store.commit('getTitle','通讯录');
         this.$store.commit('rightTab',"手动添加员工");
-        this.$store.commit('hasBack',{hasBack:false});
-        this.$store.commit('hasFoot',{hasFoot:true});
+        this.$store.commit('hasBack',{hasBack:!1});
+        this.$store.commit('hasFoot',{hasFoot:!0});
     },
     computed: {},
     methods: {},

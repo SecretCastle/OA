@@ -7,8 +7,8 @@ import Router from 'vue-router'
 const Login = resolve => require(['@/components/Login'], resolve);
 const Msg = resolve => require(['@/components/msg/Msg'], resolve);
 const Mail = resolve => require(['@/components/mail/Mail'], resolve);
-const Company = resolve => require(['@/components/mail/Company'], resolve);
-const Emp = resolve => require(['@/components/mail/emp'], resolve);
+const Company = resolve => require(['@/components/mail/Company/Company'], resolve);
+const Emp = resolve => require(['@/components/mail/emp/emp'], resolve);
 const Apps = resolve => require(['@/components/app/apps'], resolve);
 const Own = resolve => require(['@/components/Own/Own'], resolve);
 const OwnInfo = resolve => require(['@/components/Own/OwnInfo/OwnInfo'], resolve);
