@@ -12,6 +12,7 @@ const Emp = resolve => require(['@/components/mail/emp/emp'], resolve);
 const Apps = resolve => require(['@/components/app/apps'], resolve);
 const Own = resolve => require(['@/components/Own/Own'], resolve);
 const OwnInfo = resolve => require(['@/components/Own/OwnInfo/OwnInfo'], resolve);
+const OwnInfoEdit = resolve => require(['@/components/Own/OwnInfo/OwnInfoEdit'], resolve);
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
 		    path: '/Own/OwnInfo/:empId',
 		    name: 'OwnInfo',
 		    component: OwnInfo
+		},
+		{
+		    path: '/Own/OwnInfoEdit/:val',
+		    name: 'OwnInfoEdit',
+		    component: OwnInfoEdit
 		}
 	]
 })

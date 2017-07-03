@@ -1,6 +1,6 @@
 <template>
     <div>
-        <x-header style="background: #000;" :left-options="{showBack:hasBack}" :right-options="{showMore: false}" @on-click-more="showMenus = true">{{ title }}<a v-if="rightTab" slot="right" @click.prevent="rightEvent">{{ rightTab }}</a></x-header>
+        <x-header style="background: #000;" :left-options="{showBack:hasBack}" :right-options="{showMore: false}" @on-click-more="showMenus = true">{{ title }}<a v-if="rightTab" slot="right">{{ rightTab }}</a></x-header>
         <div v-transfer-dom>
             <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
         </div>
