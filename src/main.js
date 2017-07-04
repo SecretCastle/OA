@@ -71,16 +71,17 @@ store.registerModule('vux', { // 名字自己定义
         menus: {},
         hasBack: true,
         showMore: false,
-        rightTab: '完成'
+        rightTab: '完成',
+        rightFn: Function
     },
     mutations: {
         updateLoadingStatus(state, payload) {
             state.isLoading = payload.isLoading
         },
-        hasBack(state, payload){
-        	state.hasBack = payload.hasBack;
+        hasBack(state, payload) {
+            state.hasBack = payload.hasBack;
         },
-        hasFoot(state, payload){
+        hasFoot(state, payload) {
             state.hasFoot = payload.hasFoot;
         },
         getTitle(state, payload) {
@@ -91,6 +92,9 @@ store.registerModule('vux', { // 名字自己定义
         },
         getMenus(state, payload) {
             state.menus = payload;
+        },
+        rightFn(state, fn) {
+            state.rightFn = fn;
         }
     }
 })
