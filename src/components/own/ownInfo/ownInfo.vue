@@ -2,15 +2,16 @@
     <group class="ownInfo">
         <cell v-for="(item,index) in list" :key="item.index" :id="item.id" :title="item.title" primary="content" :link="item.url">
             <img v-if="index==0" class="avatar" slot="value" :src="item.value" alt="" />
+            <datetime v-else-if="index==list.length-1" v-model="item.value" @on-change="change" title="" :required="true"></datetime>
             <span v-else slot="value" v-html="item.value"></span>
         </cell>
     </group>
 </template>
 <script>
-import { Group, Cell } from 'vux';
+import { Group, Cell, Datetime } from 'vux';
 export default {
     name: 'ownInfo',
-    components: { Group, Cell },
+    components: { Group, Cell, Datetime },
     data() {
         return {
             list: [
@@ -77,8 +78,7 @@ export default {
             ],
         }
     },
-    created() {
-    },
+    created() {},
     mounted() {
         this.$store.commit('getTitle','个人信息');
         this.$store.commit('rightTab',"");
@@ -107,19 +107,41 @@ export default {
             for(var i=0, lenI=ContactList.length; i<lenI; i++){
                 contact += ContactList[i].Type + "：" + ContactList[i].Value + "\n";
             }
-            list[6].value = contact.replace(/\n/,"<br />");
+            list[6].value = contact.replace(/\n/g,"<br />");
             list[7].value = res.data.Email;
             list[8].value = res.data.Address;
             list[9].value = res.data.JoinTimeStr;
+            localStorage.setItem("JoinTime",res.data.JoinTimeStr);
         })
     },
     computed: {},
-    methods: {},
+    methods: {
+        change(value){
+            var JoinTime = localStorage.getItem("JoinTime");
+            if(JoinTime!==value){
+                $ajax.post('/UserApi/setJoinTime',{EmpUserId:this.$route.params.empId,JoinTime:value})
+                .then(res=>{
+                    console.log(res)
+                    if(res.data.Success){
+                        this.$vux.toast.show({
+                            text: res.data.Message,
+                            type: 'success'
+                        })
+                    }else{
+                        this.$vux.toast.show({
+                            text: res.data.Message,
+                            type: 'cancel'
+                        })
+                        return !1
+                    }
+                })
+            }
+        }
+    },
     destroyed() {}
 }
 </script>
 <style scoped>
 .ownInfo .weui-cell { min-height: 40px; }
 .ownInfo .avatar { display: inline-block; width: 50px; height: 50px; border-radius: 100%; }
-.ownInfo .weui-cell_access .weui-cell__ft { padding-right: 25px; }
 </style>

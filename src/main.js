@@ -7,21 +7,33 @@ import App from './App';
 import $ from 'n-zepto';
 import Vuex from 'vuex';
 import axios from 'axios';
+import  { ToastPlugin } from 'vux';
 
 require('es6-promise').polyfill();
 
 Vue.use(Vuex);
+Vue.use(ToastPlugin)
 
 FastClick.attach(document.body);
 
 Vue.config.productionTip = false;
 
+// let toast = function (text, time, type, pos, mask){
+//     this.$vux.toast.show({
+//         'time': time ? time : 2e3,
+//         'text': text,
+//         'type': type ? type : 'text',
+//         'pos': pos ? pos : 'default',
+//         'is-show-mask': mask ? mask : false
+//     })
+// }
+
 window.$router = router;
+// window.toast = toast;
 
 window.base_url = 'https://oa.m150.ibw.cc';
 
 axios.defaults.baseURL = 'https://oa.m150.ibw.cc';
-
 
 // 登陆前
 let axiosApi = axios.create({
@@ -34,6 +46,10 @@ let axiosAjax = axios.create({
     baseUrl: base_url,
     timeout: 10000,
     params: {
+        Token: localStorage.getItem('Token'),
+        UserId: localStorage.getItem('UserId')
+    },
+    data: {
         Token: localStorage.getItem('Token'),
         UserId: localStorage.getItem('UserId')
     }
@@ -71,7 +87,8 @@ store.registerModule('vux', { // 名字自己定义
         menus: {},
         hasBack: true,
         showMore: false,
-        rightTab: '完成'
+        rightTab: '完成',
+        rightFn: Function
     },
     mutations: {
         updateLoadingStatus(state, payload) {
@@ -91,6 +108,9 @@ store.registerModule('vux', { // 名字自己定义
         },
         getMenus(state, payload) {
             state.menus = payload;
+        },
+        rightFn(state, fn) {
+            state.rightFn = fn;
         }
     }
 })

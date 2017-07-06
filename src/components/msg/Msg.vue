@@ -52,7 +52,7 @@ export default {
     created() {},
     mounted() {
         this.$store.commit('getTitle','消息列表');
-        this.$store.commit('rightTab',"编辑部门");
+        this.$store.commit('rightTab',"");
         this.$store.commit('hasFoot',{hasFoot:true});
         this.$store.commit('hasBack',{hasBack:false});
     },

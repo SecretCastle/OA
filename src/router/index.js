@@ -13,6 +13,7 @@ const Apps = resolve => require(['@/components/app/apps'], resolve);
 const Own = resolve => require(['@/components/Own/Own'], resolve);
 const OwnInfo = resolve => require(['@/components/Own/OwnInfo/OwnInfo'], resolve);
 const OwnInfoEdit = resolve => require(['@/components/Own/OwnInfo/OwnInfoEdit'], resolve);
+const Depart = resolve => require(['@/components/list/Depart'], resolve);
 
 Vue.use(Router)
 
@@ -63,6 +64,11 @@ export default new Router({
 		    path: '/Own/OwnInfoEdit/:val',
 		    name: 'OwnInfoEdit',
 		    component: OwnInfoEdit
+		},
+		{
+		    path: '/list/Depart/:id',
+		    name: 'Depart',
+		    component: Depart
 		}
 	]
 })
