@@ -26,7 +26,7 @@ export default {
     components: { vlist, Search, vsearch },
     data() {
         return {
-            type: '3',
+            type: 'radio3',
             list: [
                 {
                     title: '未处理审核',

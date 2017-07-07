@@ -68,6 +68,7 @@ export default {
             options: [ '男', '女'],
             Contact: [],
             DepartName: '',
+            DepartmentId: 0,
             PostName: '',
         }
     },
@@ -197,7 +198,7 @@ export default {
             }
         },
         choose(){
-            $router.push('../../../list/depart');
+            $router.push('../../../list/depart/0');
         }
     },
     destroyed() {}

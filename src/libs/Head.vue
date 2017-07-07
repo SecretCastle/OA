@@ -7,38 +7,46 @@
     </div>
 </template>
 <script>
-import { XHeader, Actionsheet, TransferDom } from 'vux';
-import { mapState } from 'vuex';
-export default {
-    name: 'head',
-    directives: {
-        TransferDom
-    },
-    components: {
+    import {
         XHeader,
-        Actionsheet
-    },
-    data() {
-        return {
-            showMenus: false
-        }
-    },
-    computed: {
-        ...mapState({
-            title: state => state.vux.title,
-            menus: state => state.vux.menus,
-            showMore: state => state.vux.showMore,
-            rightTab: state => state.vux.rightTab,
-            hasBack: state => state.vux.hasBack,
-            rightFn: state => state.vux.rightFn
-        })
-    },
-    methods: {
-        rightClick(){
-            this.rightFn();
+        Actionsheet,
+        TransferDom
+    } from 'vux';
+    import {
+        mapState
+    } from 'vuex';
+    export default {
+        name: 'head',
+        directives: {
+            TransferDom
+        },
+        components: {
+            XHeader,
+            Actionsheet
+        },
+        data() {
+            return {
+                showMenus: false
+            }
+        },
+        computed: {
+            ...mapState({
+                title: state => state.vux.title,
+                menus: state => state.vux.menus,
+                showMore: state => state.vux.showMore,
+                rightTab: state => state.vux.rightTab,
+                hasBack: state => state.vux.hasBack,
+                rightFn: state => state.vux.rightFn
+            })
+        },
+        methods: {
+            rightClick() {
+                this.rightFn();
+            }
+
         }
     }
-}
 </script>
 <style scoped>
+
 </style>

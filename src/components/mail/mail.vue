@@ -10,7 +10,7 @@ export default {
     components: { vlist },
     data() {
         return {
-            type: '3',
+            type: 'radio3',
             hasMt: !0,
             list: [
                 {
@@ -35,6 +35,4 @@ export default {
 }
 </script>
 <style scoped>
-/*　这个样式无效？？？ */
-.icon-company { background: #000; }
 </style>
