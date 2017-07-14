@@ -32,6 +32,8 @@ export default {
     mounted() {
         this.$store.commit('hasFoot',{hasFoot:false});
         this.$store.commit('hasBack',{hasBack:false});
+
+        // localStorage.clear();
     },
     computed: {},
     methods: {

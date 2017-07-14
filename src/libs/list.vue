@@ -11,11 +11,11 @@
                             <i :id="index" class="weui-icon-icon" :class="{'weui-icon-checked':item.checked}"></i>
                         </div>
                         <div class="weui-cell__bd">
-                            <a :href="item.url ? item.url : 'javascript:void(0);'">
+                            <a :href="item.HasChild ? item.url : 'javascript:void(0);'">
                                 <h4 class="weui-check__title">{{item.title}}</h4>
                                 <p class="weui-check__desc">{{item.desc}}</p>
                             </a>
-                            <div v-if="item.url" class="weui-cell__ft_in-access"></div>
+                            <div v-if="item.HasChild" class="weui-cell__ft_in-access"></div>
                         </div>
                     </label>
                 </div>
@@ -79,11 +79,11 @@
                             <i :id="index" class="weui-icon-icon" :class="{'weui-icon-checked':item.checked}"></i>
                         </div>
                         <div class="weui-cell__bd">
-                            <a :href="item.url ? item.url : 'javascript:void(0);'">
+                            <a :href="item.HasChild ? item.url : 'javascript:void(0);'">
                                 <h4 class="weui-check__title">{{item.title}}</h4>
                                 <p class="weui-check__desc">{{item.desc}}</p>
                             </a>
-                            <div v-if="item.url" class="weui-cell__ft_in-access"></div>
+                            <div v-if="item.HasChild" class="weui-cell__ft_in-access"></div>
                         </div>
                     </label>
                 </div>
@@ -176,7 +176,7 @@ export default {
     //         header: '部门',
     //         Name: 'depart',
     //         list: [
-    //             { Id: 0, title: '周瑜', url: '/1', desc: '指挥官', icon: 'icon-company', checked: !1 },
+    //             { Id: 0, title: '周瑜', url: '/1', desc: '大都督', icon: 'icon-company', checked: !1 },
     //             { Id: 1, title: '曹操', url: '/2', desc: '君主', checked: !1 },
     //             { Id: 2, title: '鲁肃', url: '', desc: '军师', checked: !1 },
     //             { Id: 3, title: '周泰', url: '/4', desc: '将军', checked: !1 },
@@ -203,7 +203,7 @@ export default {
             // this.radioVal = val;
             console.log('radio选中了：' + val)
 
-            this.$emit('radio',val)
+            this.$emit('get-radio-value',val)
         },
         checkbox(e){
             // console.log(typeof e.target.id)

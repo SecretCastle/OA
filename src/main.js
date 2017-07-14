@@ -88,6 +88,7 @@ store.registerModule('vux', { // 名字自己定义
         hasBack: true,
         showMore: false,
         rightTab: '完成',
+        preventGoBack: false,
         rightFn: Function
     },
     mutations: {
@@ -99,6 +100,9 @@ store.registerModule('vux', { // 名字自己定义
         },
         hasFoot(state, payload) {
             state.hasFoot = payload.hasFoot;
+        },
+        preventGoBack(state, payload) {
+            state.preventGoBack = payload.preventGoBack;
         },
         getTitle(state, payload) {
             state.title = payload;

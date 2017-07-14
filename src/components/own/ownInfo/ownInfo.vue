@@ -84,6 +84,7 @@ export default {
         this.$store.commit('rightTab',"");
         this.$store.commit('hasBack',{hasBack:true});
         this.$store.commit('hasFoot',{hasFoot:false});
+        this.$store.commit('preventGoBack',{preventGoBack:true});
 
         var that = this;
         var empId = this.$route.params.empId;
@@ -94,7 +95,8 @@ export default {
             var list = that.list;
             for(var i = 0,lenI=list.length;i<lenI;i++){
                 if(list[i].url===''){
-                    list[i].url = '../ownInfoEdit/' + list[i].id
+                    // list[i].url = {path: '/own/ownInfoEdit/' + list[i].id, replace: true}
+                    list[i].url = '/own/ownInfoEdit/' + list[i].id
                 }
             }
             list[0].value = res.data.Avatar;
@@ -142,6 +144,7 @@ export default {
 }
 </script>
 <style scoped>
+.ownInfo { padding-bottom: 1.17647059em; }
 .ownInfo .weui-cell { min-height: 40px; }
 .ownInfo .avatar { display: inline-block; width: 50px; height: 50px; border-radius: 100%; }
 </style>

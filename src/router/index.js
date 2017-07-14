@@ -53,7 +53,8 @@ export default new Router({
 		{
 		    path: '/Own/Own',
 		    name: 'Own',
-		    component: Own
+		    component: Own,
+		    children: []
 		},
 		{
 		    path: '/Own/OwnInfo/:empId',

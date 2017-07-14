@@ -58,7 +58,9 @@
         },
         computed: {},
         methods: {},
-        destroyed() {}
+        destroyed() {
+            localStorage.removeItem("JoinTime")
+        }
     }
 </script>
 <style scoped>

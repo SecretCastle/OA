@@ -80,7 +80,7 @@ export default {
         this.$store.commit('hasFoot',{hasFoot:false});
 
         this.type = this.$route.params.val;
-        console.log(this.type)
+        // console.log(this.type)
 
         var that = this;
         if(this.type==='Contact'){
@@ -92,6 +92,8 @@ export default {
                 that.submit(id,that.val);
             });
         }
+
+        var DepartItem = JSON.parse(localStorage.getItem("DepartItem"));
 
         var list = this.list,
             id = this.$route.params.val;
@@ -105,13 +107,14 @@ export default {
                 }
             }
             if(id==="Name"){
-                id = "RealName";
                 this.val = res.data.Name;
             }else if(id==="Gender"){
                 this.val = res.data.Gender===0 ? '男' : '女';
             }else if(id==="PostName"){
                 this.PostName = res.data.PostName;
-                this.DepartName = res.data.DepartmentName;
+                this.DepartName = DepartItem ? DepartItem.Name : res.data.DepartmentName;
+                this.DepartmentId = DepartItem ? DepartItem.Id : res.data.DepartmentId;
+                this.val = {DepartmentId:this.DepartmentId,PostName:this.PostName}
             }else if(id==="JobNo"){
                 this.val = res.data.JobNo;
             }else if(id==="Contact"){
@@ -129,7 +132,8 @@ export default {
     methods: {
         submit(api,val){
             var params = {};
-            if(api === "RealName"){
+            if(api === "Name"){
+                api = 'RealName';
                 params = {EmpUserId:localStorage.getItem("empId"),Name:val}
             }else if(api === 'JobNo'){
                 params = {EmpUserId:localStorage.getItem("empId"),JobNo:val}
@@ -137,7 +141,8 @@ export default {
                 val = val==='男' ? 0 : 1;
                 params = {EmpUserId:localStorage.getItem("empId"),Gender:val}
             }else if(api === 'PostName'){
-                params = {EmpUserId:localStorage.getItem("empId"),PostName:val}
+                api = 'Depart';
+                params = {EmpUserId:localStorage.getItem("empId"),PostName:val.PostName,DepartId:val.DepartmentId}
             }else if(api === 'JobNo'){
                 params = {EmpUserId:localStorage.getItem("empId"),JobNo:val}
             }else if(api === 'Contact'){
@@ -162,7 +167,11 @@ export default {
                         type: 'success'
                     })
                     setTimeout(()=>{
-                        this.$router.go(-1)
+                        if(api === 'Depart'){
+                            $router.push('/own/ownInfo/44')
+                        }else{
+                            $router.back()
+                        }
                     },2e3)
                 }else{
                     this.$vux.toast.show({
@@ -198,10 +207,13 @@ export default {
             }
         },
         choose(){
-            $router.push('../../../list/depart/0');
+            localStorage.setItem("DepartName",this.DepartName)
+            $router.push('/list/depart/0');
         }
     },
-    destroyed() {}
+    destroyed() {
+        localStorage.removeItem("DepartItem");
+    }
 }
 </script>
 <style scoped>
